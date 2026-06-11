@@ -1,3 +1,10 @@
+# Pokémon Card Price Scraper
+# Scrapes 30,000+ card prices across 325 sets from
+# PriceCharting.com and saves results to a CSV file
+# Author: Paulina Marengo
+# Date: June 2026
+# Tools: Python, httpx, selectolax
+
 import httpx
 import csv
 import time
