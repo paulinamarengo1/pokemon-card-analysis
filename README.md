@@ -18,7 +18,7 @@ All data was self-scraped from **PriceCharting.com** (no Kaggle datasets were us
 PriceCharting aggregates real transaction data from eBay sold listings and other marketplaces, providing:
 
 - Ungraded market prices
-- Grade 9 prices (BGS/CGC)
+- Grade 9 prices
 - PSA 10 prices (highest achievable grade)
 - Coverage across hundreds of Pokemon sets
 
@@ -29,29 +29,8 @@ Data was scraped using Python (see [`scraper.py`](scraper.py) for the full scrap
 | Tool | Purpose |
 |---|---|
 | Python (httpx, selectolax) | Web scraping |
-| CSV | Intermediate data storage |
 | Microsoft SQL Server | Data storage and analysis |
 | Power BI | Dashboard and visualization |
-
-## Project Structure
- 
-```
-pokemon-card-analytics/
-│
-├── scraper/
-│   └── scraper.py           # Scrapes all Pokemon sets from PriceCharting
-│
-├── sql/
-│   └── analysis_queries.sql # All analysis queries with documentation
-│
-├── data/
-│   └── pokemon_prices.csv   # Raw scraped data
-│
-├── dashboard/
-│   └── pokemon_analytics.pbix  # Power BI dashboard file
-│
-└── README.md
-```
 
 ## How It Works
  
@@ -77,16 +56,7 @@ Since the dataset does not include sales volume, cards with very few transaction
 ### 5. Dashboard (Power BI)
 The Power BI dashboard visualizes all six analyses with interactive filters by set and data quality flag.
  
----
-
-## Dashboard Pages
- 
-- **Page 1: Market Overview** — KPI cards, total dataset size, average prices by grade
-- **Page 2: Grading ROI** — scatter plot of ungraded price vs PSA 10 multiplier, colored by data quality flag
-- **Page 3: Best Grading Opportunities** — top reliable cards by grading ROI
-- **Page 4: Collection Tracker** — personal collection valuation against live market prices
-
- ## What I Learned
+### What I Learned
  
 - End-to-end data pipeline construction: scraping, storage, analysis, and visualization
 - Handling data quality issues without sales volume data by using statistical outlier detection
@@ -94,8 +64,6 @@ The Power BI dashboard visualizes all six analyses with interactive filters by s
 
 ## Future Improvements
  
-- Scrape historical price data for the Pokemon Base Set to enable time series analysis and price forecasting
 - Add a Python collection valuation script: input your cards via CSV, output current value and grading recommendations
 - Automate weekly scraping to build a longitudinal price dataset over time
-- Integrate eBay sold listings via the eBay Browse API as a second pricing source
 
