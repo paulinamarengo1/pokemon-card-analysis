@@ -82,4 +82,4 @@ with open("pokemon_prices.csv", "w", newline="", encoding="utf-8") as f:
             print(f"  Error scraping {set_name}: {e}")
             continue
 
-print("Done! Saved to pokemon_prices.csv")
+print("Sucess, Saved to pokemon_prices.csv")
