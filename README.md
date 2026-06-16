@@ -32,6 +32,9 @@ Data was scraped using Python (see [`scraper.py`](scraper.py) for the full scrap
 | Microsoft SQL Server | Data storage and analysis |
 | Power BI | Dashboard and visualization |
 
+## Dashboard Preview
+![Dashboard Screenshot](Dashboard_SS.png)
+
 ## How It Works
  
 ### 1. Data Collection (Python)
