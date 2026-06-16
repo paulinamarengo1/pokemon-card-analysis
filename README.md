@@ -7,10 +7,10 @@ file and analyzed using SQL to uncover market trends and grading ROI insights.
 
 ## Key Findings
 
-1. 3864 cards in the dataset add $500+ in value when graded.
-2. High-value grading opportunities are spread across sets. No single set dominates.
-3. The average PSA 10 multiplier across reliable data is 25.31x
-4. Cards in the $50–$100 ungraded price range offer the best balance of grading ROI, averaging a 20x PSA 10 multiplier and $1,380 in value added.
+1. 3864 cards (around 10%) in the dataset add $500+ in value when graded as a PSA 10. 
+2. High-value grading opportunities are spread across sets. No single set dominates the top 10, making card-specific research more important than set-level targeting.
+3. The average PSA 10 multiplier across reliable data is 25.31x (PSA 10 multiplier = PSA 10 price divided by ungraded price).
+4. Cards in the $50–$100 ungraded price range offer the best balance of grading ROI, averaging a 20x PSA 10 multiplier and $1,380 in value added, making them the most accessible high-return grading targets.
 
 
 ## Motivation
