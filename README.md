@@ -54,7 +54,9 @@ Six queries drive the core analysis:
 Since the dataset does not include sales volume, cards with very few transactions can show extreme price multipliers that don't reflect true market value. To handle this, a statistical outlier flag was built into the grading ROI query: any card with a PSA 10 multiplier more than 10x the dataset average is flagged as "Outlier - Verify Manually" and excluded from the reliable opportunities analysis.
  
 ### 5. Dashboard (Power BI)
-The Power BI dashboard visualizes all six analyses with interactive filters by set and data quality flag.
+The Power BI dashboard provides an interactive view of the dataset with filters by set and card name. A reset all filters button sits at the top for easy navigation.
+
+The dashboard is included as a .pbit (Power BI template) file. This format excludes the raw data to keep the file lightweight. To use it, open the file in Power BI Desktop and load pokemon_prices.csv when prompted.
  
 ### What I Learned
  
@@ -65,5 +67,4 @@ The Power BI dashboard visualizes all six analyses with interactive filters by s
 ## Future Improvements
  
 - Add a Python collection valuation script: input your cards via CSV, output current value and grading recommendations
-- Automate weekly scraping to build a longitudinal price dataset over time
 
