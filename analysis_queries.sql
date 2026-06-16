@@ -101,3 +101,41 @@ WHERE Ungraded IS NOT NULL
 AND [PSA_10] IS NOT NULL 
 AND [Grade_9] IS NOT NULL
 AND (Card NOT LIKE '%Box%' AND Card NOT LIKE '%Pack%');
+
+-- QUERY 7: PRICE BUCKET ROI ANALYSIS
+-- This query groups cards into price buckets to find the optimal ungraded price range. 
+-- Grading ROI needs to be meaningful but also realistic for it to be optimal
+SELECT 
+    CASE 
+        WHEN Ungraded BETWEEN 1 AND 10 THEN '$1-$10'
+        WHEN Ungraded BETWEEN 10 AND 50 THEN '$10-$50'
+        WHEN Ungraded BETWEEN 50 AND 100 THEN '$50-$100'
+        WHEN Ungraded BETWEEN 100 AND 500 THEN '$100-$500'
+        WHEN Ungraded > 500 THEN '$500+'
+    END AS price_bucket,
+    COUNT(*) AS card_count,
+    ROUND(AVG(CAST([PSA_10] AS FLOAT) / NULLIF(CAST(Ungraded AS FLOAT), 0)), 2) AS avg_psa10_multiplier,
+    ROUND(AVG(CAST([PSA_10] AS FLOAT) - CAST(Ungraded AS FLOAT)), 2) AS avg_value_added
+
+FROM pokemon_prices
+WHERE Ungraded IS NOT NULL AND [PSA_10] IS NOT NULL
+AND Ungraded > 1
+AND (Card NOT LIKE '%Box%' AND Card NOT LIKE '%Pack%')
+AND (CAST([PSA_10] AS FLOAT) / NULLIF(CAST(Ungraded AS FLOAT), 0)) <= (
+    SELECT AVG(CAST([PSA_10] AS FLOAT) / NULLIF(CAST(Ungraded AS FLOAT), 0)) * 10
+    FROM pokemon_prices
+    WHERE Ungraded IS NOT NULL 
+    AND [PSA_10] IS NOT NULL
+    AND Ungraded > 1
+    AND Card NOT LIKE '%Box%' 
+    AND Card NOT LIKE '%Pack%'
+)
+GROUP BY 
+    CASE 
+        WHEN Ungraded BETWEEN 1 AND 10 THEN '$1-$10'
+        WHEN Ungraded BETWEEN 10 AND 50 THEN '$10-$50'
+        WHEN Ungraded BETWEEN 50 AND 100 THEN '$50-$100'
+        WHEN Ungraded BETWEEN 100 AND 500 THEN '$100-$500'
+        WHEN Ungraded > 500 THEN '$500+'
+    END
+ORDER BY avg_psa10_multiplier DESC
