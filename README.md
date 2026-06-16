@@ -18,7 +18,7 @@ The Pokemon card market is a multi-billion dollar collectibles market where pric
 
 ## Data Source
 
-All data was self-scraped from **PriceCharting.com** (no Kaggle datasets were used).
+All data was self-scraped from **PriceCharting.com**.
 
 PriceCharting aggregates real transaction data from eBay sold listings and other marketplaces, providing:
 
