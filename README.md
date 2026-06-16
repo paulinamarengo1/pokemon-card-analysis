@@ -5,11 +5,17 @@ A Python web scraper that collects 30,000+ Pokémon card prices across 325 sets
 from [PriceCharting.com](https://www.pricecharting.com). Data is saved to a CSV 
 file and analyzed using SQL to uncover market trends and grading ROI insights.
 
+## Key Findings
+
+1. 3864 cards in the dataset add $500+ in value when graded.
+2. High-value grading opportunities are spread across sets. No single set dominates.
+3. The average PSA 10 multiplier across reliable data is 25.31x
+4. Cards in the $50–$100 ungraded price range offer the best balance of grading ROI, averaging a 20x PSA 10 multiplier and $1,380 in value added.
+
+
 ## Motivation
 
 The Pokemon card market is a multi-billion dollar collectibles market where prices are driven by card condition, rarity, and grading. Professional grading (PSA, BGS) can multiply a card's value significantly but not all cards are worth grading. This project answers the question: which cards are actually worth getting graded, and by how much?
-
-The project was mainly built as a real tool for my personal collection!
 
 ## Data Source
 
@@ -52,6 +58,7 @@ Six queries drive the core analysis:
 - **Reliable grading opportunities** — same analysis filtered to trustworthy data only
 - **Cards where grading adds $500+ in value** — high-impact grading targets
 - **Average value added by grading** — market-wide benchmark for grading ROI
+- **Price bucket ROI analysis** — average multiplier and value added by ungraded price range to identify the optimal grading entry point.
 
 ### 4. Outlier Handling
 Since the dataset does not include sales volume, cards with very few transactions can show extreme price multipliers that don't reflect true market value. To handle this, a statistical outlier flag was built into the grading ROI query: any card with a PSA 10 multiplier more than 10x the dataset average is flagged as "Outlier - Verify Manually" and excluded from the reliable opportunities analysis.
