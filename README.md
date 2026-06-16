@@ -1,7 +1,7 @@
 # Pokémon Card Market Analysis
 
 ## Overview
-A Python web scraper that collects 30,000+ Pokémon card prices across 325 sets 
+A Python web scraper that collects 38,000+ Pokémon card prices across 325 sets 
 from [PriceCharting.com](https://www.pricecharting.com). Data is saved to a CSV 
 file and analyzed using SQL to uncover market trends and grading ROI insights.
 
