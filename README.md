@@ -49,7 +49,7 @@ The scraper navigates to PriceCharting's Pokemon category page, identifies all a
 The CSV is loaded into Microsoft SQL Server where all analysis is performed. Sealed products (boxes, packs) are excluded from all queries since they behave differently from individual cards.
  
 ### 3. Analysis (SQL)
-Six queries drive the core analysis:
+Seven queries drive the core analysis:
  
 - **Total cards in dataset** — baseline count of scraped records
 - **Top 10 most expensive ungraded cards** — market overview of highest value cards
